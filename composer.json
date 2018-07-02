@@ -1,0 +1,29 @@
+{
+	"name": "hypejunction/hypetwig",
+	"type": "elgg-plugin",
+	"description": "Twig template integration",
+	"homepage": "http://hypejunction.com",
+	"keywords": [
+		"elgg", "plugin", "twig", "templates"
+	],
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Ismayil Khayredinov",
+			"email": "info@hypejunction.com"
+		}
+	],
+	"extra": {
+		"installer-name": "hypeTwig"
+	},
+	"require": {
+		"php": ">=5.5",
+		"composer/installers": "~1.0",
+		"twig/twig": "^2.4"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "classes/"
+		}
+	}
+}
