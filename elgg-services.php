@@ -8,7 +8,7 @@ return [
 		->constructor(
 			\DI\get('twig.loader'),
 			[
-				'cache' => elgg_get_data_path() . 'twig/',
+				'cache' => elgg_get_cache_path() . 'twig/',
 				'debug' => elgg_get_config('environment') === 'development',
 				'auto_reload' => elgg_get_config('environment') === 'development',
 			]

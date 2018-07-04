@@ -53,6 +53,7 @@ Function available in templates
 * ``assetUrl()`` - equivalent of ``elgg_get_simplecache_url()``
 * ``requireJs()`` - equivalent of ``elgg_require_js()``
 * ``formatHtml()`` - equivalent of ``elgg_format_html()``
+* ``menu()`` - equivalent of ``elgg_view_menu()``
 
 ## Notes
 

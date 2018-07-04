@@ -30,7 +30,7 @@ class Bootstrap extends PluginBootstrap {
 	 */
 	public function boot() {
 		elgg_register_event_handler('cache:flush', 'system', function() {
-			$cache = elgg_get_data_path() . 'twig/';
+			$cache = elgg_get_cache_path() . 'twig/';
 			if (is_dir($cache)) {
 				_elgg_rmdir($cache);
 			}

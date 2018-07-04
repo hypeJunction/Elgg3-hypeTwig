@@ -37,9 +37,14 @@ class Twig extends Environment {
 
 		$this->addFunction(new TwigFunction('requireJs', 'elgg_require_js'));
 
-		$this->addFunction(new TwigFunction('formatHtml', 'elgg_format_html',[
-				'pre_escape' => 'html',
-				'is_safe' => ['html'],
+		$this->addFunction(new TwigFunction('formatHtml', 'elgg_format_html', [
+			'pre_escape' => 'html',
+			'is_safe' => ['html'],
+		]));
+
+		$this->addFunction(new TwigFunction('menu', 'elgg_view_menu', [
+			'pre_escape' => 'html',
+			'is_safe' => ['html'],
 		]));
 	}
 

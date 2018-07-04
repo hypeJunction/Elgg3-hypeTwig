@@ -3,6 +3,7 @@
 
 namespace hypeJunction\Twig;
 
+use Elgg\Project\Paths;
 use Elgg\UnitTestCase;
 use Faker\Generator;
 
@@ -19,19 +20,13 @@ class TwigTest extends UnitTestCase {
 	public function up() {
 		$this->plugin = $this->startPlugin();
 
-		$view_location = dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/';
-
-		elgg_set_view_location('globals/app.twig', $view_location);
-		elgg_set_view_location('globals/faker.twig', $view_location);
-		elgg_set_view_location('functions/echo.twig', $view_location);
-		elgg_set_view_location('functions/view.twig', $view_location);
-		elgg_set_view_location('functions/assetUrl.twig', $view_location);
-		elgg_set_view_location('functions/requireJs.twig', $view_location);
-		elgg_set_view_location('functions/formatHtml.twig', $view_location);
-		elgg_set_view_location('helpers/view', $view_location);
-		elgg_set_view_location('helpers/js', $view_location);
+		$view_location = dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/default/';
 
 		$views = _elgg_services()->views;
+
+		$views->autoregisterViews('', $view_location, 'default');
+		$views->autoregisterViews('', Paths::elgg() . '/views/default/', 'default');
+
 		$loader = new ViewLoader($views);
 		$twig = new Twig($loader);
 		$twig->setup();
@@ -59,6 +54,7 @@ class TwigTest extends UnitTestCase {
 			['assetUrl', 'elgg_get_simplecache_url'],
 			['requireJs', 'elgg_require_js'],
 			['formatHtml', 'elgg_format_html'],
+			['menu', 'elgg_view_menu'],
 		];
 	}
 
@@ -110,5 +106,13 @@ class TwigTest extends UnitTestCase {
 		$this->assertXmlStringEqualsXmlString('<p>hello</p>', $this->twig->render('functions/formatHtml'));
 	}
 
+	public function testCanRenderTemplateWithMenu() {
+		elgg_register_menu_item('foo', [
+			'name' => 'bar',
+			'href' => 'bar',
+			'text' => 'bar',
+		]);
 
+		$this->assertRegExp('/elgg-menu-item-bar/im', $this->twig->render('functions/menu'));
+	}
 }
