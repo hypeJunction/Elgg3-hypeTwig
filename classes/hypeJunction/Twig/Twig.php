@@ -48,4 +48,22 @@ class Twig extends Environment {
 		]));
 	}
 
+	/**
+	 * Normalize variables
+	 *
+	 * @param array $vars Vars
+	 * @return array
+	 */
+	public function normalizeVars(array $vars = []) {
+		foreach ($vars as &$value) {
+			if (is_array($value)) {
+				$value = $this->normalizeVars($value);
+			} else if ($value instanceof \ElggEntity) {
+				$value = $value->toObject();
+			}
+		}
+
+		return $vars;
+	}
+
 }
