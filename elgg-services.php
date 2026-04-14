@@ -1,10 +1,15 @@
 <?php
 
+// (4.x) PhpDiResolver and DI\object() were removed. The 'views' rebind
+// is no longer needed — Elgg's ViewsService is reachable via elgg()->
+// views from any application-level code, and the factory closure below
+// resolves it at construction time. DI\object(X) is rewritten as
+// DI\create(X).
 return [
-	'views' => new \Elgg\Di\PhpDiResolver(\Elgg\ViewsService::class, 'views'),
-	'twig.loader' => \DI\object(\hypeJunction\Twig\ViewLoader::class)
-		->constructor(\DI\get('views')),
-	'twig' => \DI\object(\hypeJunction\Twig\Twig::class)
+	'twig.loader' => \DI\factory(function () {
+		return new \hypeJunction\Twig\ViewLoader(elgg()->views);
+	}),
+	'twig' => \DI\create(\hypeJunction\Twig\Twig::class)
 		->constructor(
 			\DI\get('twig.loader'),
 			[
