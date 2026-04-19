@@ -4,7 +4,10 @@
 	"description": "Twig template integration",
 	"homepage": "http://hypejunction.com",
 	"keywords": [
-		"elgg", "plugin", "twig", "templates"
+		"elgg",
+		"plugin",
+		"twig",
+		"templates"
 	],
 	"license": "proprietary",
 	"authors": [
@@ -14,16 +17,25 @@
 		}
 	],
 	"extra": {
-		"installer-name": "hypeTwig"
+		"installer-name": "hypeTwig",
+		"elgg-plugin": {
+			"id": "hypetwig"
+		}
 	},
 	"require": {
-		"php": ">=5.5",
-		"composer/installers": "~1.0",
-		"twig/twig": "^2.4"
+		"php": ">=7.4",
+		"composer/installers": "^2.0",
+		"twig/twig": "^2.4",
+		"elgg/elgg": "^4.0"
 	},
 	"autoload": {
 		"psr-0": {
 			"": "classes/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
 		}
 	}
 }
