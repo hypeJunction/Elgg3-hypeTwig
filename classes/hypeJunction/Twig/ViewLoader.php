@@ -8,6 +8,9 @@ use Twig\Error\LoaderError;
 use Twig\Loader\LoaderInterface;
 use Twig\Source;
 
+/**
+ * ViewLoader class.
+ */
 class ViewLoader implements LoaderInterface {
 
 	protected $views;

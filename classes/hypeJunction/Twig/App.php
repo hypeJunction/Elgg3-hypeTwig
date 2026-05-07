@@ -2,6 +2,9 @@
 
 namespace hypeJunction\Twig;
 
+/**
+ * App class.
+ */
 class App {
 
 	/**

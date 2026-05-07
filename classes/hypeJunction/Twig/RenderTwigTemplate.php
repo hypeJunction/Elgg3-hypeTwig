@@ -6,8 +6,18 @@ use Elgg\Hook;
 use Elgg\ViewsService;
 use Psr\Log\LogLevel;
 
+/**
+ * RenderTwigTemplate class.
+ */
 class RenderTwigTemplate {
 
+	/**
+	 * __invoke.
+	 *
+	 * @param Hook $hook hook
+	 *
+	 * @return mixed
+	 */
 	public function __invoke(Hook $hook) {
 
 		$view = $hook->getParam('view');

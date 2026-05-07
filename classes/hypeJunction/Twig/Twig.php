@@ -7,6 +7,9 @@ use Faker\Factory;
 use Twig\Environment;
 use Twig\TwigFunction;
 
+/**
+ * Twig class.
+ */
 class Twig extends Environment {
 
 	use ServiceFacade;
@@ -65,5 +68,4 @@ class Twig extends Environment {
 
 		return $vars;
 	}
-
 }
