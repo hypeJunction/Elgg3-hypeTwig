@@ -58,13 +58,11 @@ class ViewLoaderTest extends UnitTestCase {
 		);
 	}
 
-	/**
-	 * @expectedException \Twig_Error_Loader
-	 */
 	public function testUnknownTemplateThrows() {
 		$views = _elgg_services()->views;
 		$loader = new ViewLoader($views);
 
+		$this->expectException(LoaderError::class);
 		$loader->getSourceContext('unknown');
 	}
 
@@ -78,13 +76,11 @@ class ViewLoaderTest extends UnitTestCase {
 		$this->assertEquals(sha1($path), $loader->getCacheKey('test'));
 	}
 
-	/**
-	 * @expectedException \Twig_Error_Loader
-	 */
 	public function testUnknownTemplateThrowsWhenGettingCacheKey() {
 		$views = _elgg_services()->views;
 		$loader = new ViewLoader($views);
 
+		$this->expectException(LoaderError::class);
 		$loader->getCacheKey('unknown');
 	}
 
@@ -112,13 +108,11 @@ class ViewLoaderTest extends UnitTestCase {
 		$this->assertTrue($loader->isFresh('test', $mtime + 1000));
 	}
 
-	/**
-	 * @expectedException \Twig_Error_Loader
-	 */
 	public function testUnknownTemplateThrowsWhenCheckingFreshness() {
 		$views = _elgg_services()->views;
 		$loader = new ViewLoader($views);
 
+		$this->expectException(LoaderError::class);
 		$loader->isFresh('unknown', time());
 	}
 }

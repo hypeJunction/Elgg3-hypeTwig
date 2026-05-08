@@ -113,6 +113,6 @@ class TwigTest extends UnitTestCase {
 			'text' => 'bar',
 		]);
 
-		$this->assertRegExp('/elgg-menu-item-bar/im', $this->twig->render('functions/menu'));
+		$this->assertMatchesRegularExpression('/elgg-menu-item-bar/im', $this->twig->render('functions/menu'));
 	}
 }

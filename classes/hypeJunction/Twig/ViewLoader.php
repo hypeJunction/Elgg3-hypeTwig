@@ -59,7 +59,7 @@ class ViewLoader implements LoaderInterface {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getSourceContext($name) {
+	public function getSourceContext(string $name): Source {
 		$view_name = $this->normalizeViewName($name);
 		$path = $this->findTemplate($name);
 
@@ -75,7 +75,7 @@ class ViewLoader implements LoaderInterface {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getCacheKey($name) {
+	public function getCacheKey(string $name): string {
 		$path = $this->findTemplate($name);
 		if (!$path) {
 			throw new LoaderError("''$name' template does not exist");
@@ -87,7 +87,7 @@ class ViewLoader implements LoaderInterface {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function isFresh($name, $time) {
+	public function isFresh(string $name, int $time): bool {
 		$path = $this->findTemplate($name);
 
 		if (!$path) {
@@ -100,7 +100,7 @@ class ViewLoader implements LoaderInterface {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function exists($name) {
+	public function exists(string $name): bool {
 		return (bool) $this->findTemplate($name);
 	}
 }
