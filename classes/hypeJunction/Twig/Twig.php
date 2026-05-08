@@ -2,7 +2,6 @@
 
 namespace hypeJunction\Twig;
 
-use Elgg\Di\ServiceFacade;
 use Faker\Factory;
 use Twig\Environment;
 use Twig\TwigFunction;
@@ -12,13 +11,13 @@ use Twig\TwigFunction;
  */
 class Twig extends Environment {
 
-	use ServiceFacade;
-
 	/**
-	 * {@inheritdoc}
+	 * Return the service instance from the DI container.
+	 *
+	 * @return self
 	 */
-	public static function name() {
-		return 'twig';
+	public static function instance(): self {
+		return elgg()->get('twig');
 	}
 
 	/**
