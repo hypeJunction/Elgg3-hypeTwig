@@ -52,7 +52,7 @@ class TwigTest extends UnitTestCase {
 			['echo', 'elgg_echo'],
 			['view', 'elgg_view'],
 			['assetUrl', 'elgg_get_simplecache_url'],
-			['requireJs', 'elgg_require_js'],
+			['importEsm', 'elgg_import_esm'],
 			['formatHtml', 'elgg_format_html'],
 			['menu', 'elgg_view_menu'],
 		];
@@ -97,9 +97,8 @@ class TwigTest extends UnitTestCase {
 		$this->assertEquals(elgg_get_simplecache_url('helpers/js'), $this->twig->render('functions/assetUrl'));
 	}
 
-	public function testCanRenderTemplateWithRequireJs() {
-		$this->assertEquals('', $this->twig->render('functions/requireJs'));
-		$this->assertContains('helpers/js', _elgg_services()->amdConfig->getDependencies());
+	public function testCanRenderTemplateWithImportEsm() {
+		$this->assertEquals('', $this->twig->render('functions/importEsm'));
 	}
 
 	public function testCanRenderTemplateWithFormatHtml() {

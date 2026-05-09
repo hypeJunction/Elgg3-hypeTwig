@@ -37,7 +37,7 @@ class Twig extends Environment {
 
 		$this->addFunction(new TwigFunction('assetUrl', 'elgg_get_simplecache_url'));
 
-		$this->addFunction(new TwigFunction('requireJs', 'elgg_require_js'));
+		$this->addFunction(new TwigFunction('importEsm', 'elgg_import_esm'));
 
 		$this->addFunction(new TwigFunction('formatHtml', 'elgg_format_html', [
 			'pre_escape' => 'html',
