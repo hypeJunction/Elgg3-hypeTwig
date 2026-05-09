@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Twig;
 
-use Elgg\Hook;
+use Elgg\Event;
 use Elgg\ViewsService;
 use Psr\Log\LogLevel;
 
@@ -14,19 +14,19 @@ class RenderTwigTemplate {
 	/**
 	 * __invoke.
 	 *
-	 * @param Hook $hook hook
+	 * @param Event $event event
 	 *
 	 * @return mixed
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$view = $hook->getParam('view');
+		$view = $event->getParam('view');
 
 		if (substr($view, -5) !== '.twig') {
 			return null;
 		}
 
-		$vars = $hook->getValue();
+		$vars = $event->getValue();
 
 		$template = substr($view, 0, -5);
 
