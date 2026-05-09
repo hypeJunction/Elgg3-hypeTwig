@@ -1,6 +1,6 @@
 hypeTwig
 ========
-![Elgg 3.0](https://img.shields.io/badge/Elgg-3.0.x-orange.svg?style=flat-square)
+![Elgg 4.x](https://img.shields.io/badge/Elgg-4.x-orange.svg?style=flat-square)
 
 Adds support for twig templates in Elgg
 
