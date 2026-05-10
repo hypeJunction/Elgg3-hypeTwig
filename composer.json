@@ -2,7 +2,7 @@
     "name": "hypejunction/hypetwig",
     "type": "elgg-plugin",
     "description": "Twig template integration",
-    "homepage": "https://github.com/hypeJunction/elgg-twig",
+    "homepage": "https://github.com/hypeJunction/Elgg3-hypeTwig",
     "keywords": [
         "elgg",
         "plugin",
@@ -17,7 +17,7 @@
         }
     ],
     "extra": {
-        "installer-name": "hypeTwig",
+        "installer-name": "hypetwig",
         "elgg-plugin": {
             "id": "hypetwig"
         }
@@ -41,5 +41,6 @@
         "audit": {
             "block-insecure": false
         }
-    }
+    },
+    "version": "4.0.0"
 }
