@@ -41,6 +41,5 @@
         "audit": {
             "block-insecure": false
         }
-    },
-    "version": "7.0.0"
+    }
 }

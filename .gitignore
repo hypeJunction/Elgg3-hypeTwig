@@ -9,6 +9,7 @@ robots.txt
 /vendor/
 /mod/
 composer.lock
-Gemfile.lockdocker/.env
+Gemfile.lock
+docker/.env
 tests/deps.local.txt
 tests/.phpunit.result.cache
