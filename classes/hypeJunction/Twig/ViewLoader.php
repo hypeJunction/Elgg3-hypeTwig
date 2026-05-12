@@ -10,7 +10,8 @@ use Twig\Source;
 
 class ViewLoader implements LoaderInterface {
 
-	protected $views;
+	/** @var mixed */
+    protected $views;
 
 	/**
 	 * Constructor

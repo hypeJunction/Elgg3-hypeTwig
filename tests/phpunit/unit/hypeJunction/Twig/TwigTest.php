@@ -47,7 +47,10 @@ class TwigTest extends UnitTestCase {
 		$this->assertEquals($name, $function->getName());
 	}
 
-	public function customFunctions() {
+	/**
+     * @return mixed
+     */
+    public function customFunctions() {
 		return [
 			['echo', 'elgg_echo'],
 			['view', 'elgg_view'],

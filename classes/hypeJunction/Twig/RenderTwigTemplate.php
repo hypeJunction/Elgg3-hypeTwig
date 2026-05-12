@@ -8,7 +8,11 @@ use Psr\Log\LogLevel;
 
 class RenderTwigTemplate {
 
-	public function __invoke(Hook $hook) {
+	/**
+     * @param Hook $hook
+     * @return mixed
+     */
+    public function __invoke(Hook $hook) {
 
 		$view = $hook->getParam('view');
 
