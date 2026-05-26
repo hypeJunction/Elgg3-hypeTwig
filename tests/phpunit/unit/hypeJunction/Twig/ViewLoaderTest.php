@@ -17,7 +17,7 @@ class ViewLoaderTest extends UnitTestCase {
 
 		$view_location = dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/';
 
-		elgg_set_view_location('test.twig', $view_location);
+		\elgg_set_view_location('test.twig', $view_location);
 	}
 
 	public function down() {
@@ -25,7 +25,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testCanNormalizeViewName() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$this->assertEquals('test.twig', $loader->normalizeViewName('test'));
@@ -33,7 +33,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testCanFindTemplate() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$expected = Paths::sanitize(dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/default/test.twig', false);
@@ -44,7 +44,7 @@ class ViewLoaderTest extends UnitTestCase {
 
 	public function testCanGetSourceContext() {
 
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$context = $loader->getSourceContext('test');
@@ -59,7 +59,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testUnknownTemplateThrows() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$this->expectException(LoaderError::class);
@@ -68,7 +68,7 @@ class ViewLoaderTest extends UnitTestCase {
 
 	public function testCanGetCacheKey() {
 
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$path = Paths::sanitize(dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/default/test.twig', false);
@@ -77,7 +77,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testUnknownTemplateThrowsWhenGettingCacheKey() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$this->expectException(LoaderError::class);
@@ -85,7 +85,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testCanCheckTemplateExistence() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$this->assertTrue($loader->exists('test'));
@@ -97,7 +97,7 @@ class ViewLoaderTest extends UnitTestCase {
 
 	public function testCanCheckIfTemplateIsFresh() {
 
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$path = Paths::sanitize(dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/default/test.twig', false);
@@ -109,7 +109,7 @@ class ViewLoaderTest extends UnitTestCase {
 	}
 
 	public function testUnknownTemplateThrowsWhenCheckingFreshness() {
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 		$loader = new ViewLoader($views);
 
 		$this->expectException(LoaderError::class);

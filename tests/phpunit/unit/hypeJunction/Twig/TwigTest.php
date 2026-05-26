@@ -22,7 +22,7 @@ class TwigTest extends UnitTestCase {
 
 		$view_location = dirname(dirname(dirname(dirname(__FILE__)))) . '/test_files/views/default/';
 
-		$views = _elgg_services()->views;
+		$views = \_elgg_services()->views;
 
 		$views->autoregisterViews('', $view_location, 'default');
 		$views->autoregisterViews('', Paths::elgg() . '/views/default/', 'default');
@@ -66,10 +66,10 @@ class TwigTest extends UnitTestCase {
 
 		$this->assertInstanceOf(App::class, $app);
 
-		$this->assertEquals(elgg_get_logged_in_user_entity(), $app->user());
-		$this->assertEquals(elgg_get_site_entity(), $app->site());
-		$this->assertEquals(elgg_get_login_url(), $app->loginUrl());
-		$this->assertEquals(elgg_get_registration_url(), $app->registrationUrl());
+		$this->assertEquals(\elgg_get_logged_in_user_entity(), $app->user());
+		$this->assertEquals(\elgg_get_site_entity(), $app->site());
+		$this->assertEquals(\elgg_get_login_url(), $app->loginUrl());
+		$this->assertEquals(\elgg_get_registration_url(), $app->registrationUrl());
 
 		$faker = $globals['faker'];
 		/* @var $faker \hypeJunction\Twig\App */
@@ -78,7 +78,7 @@ class TwigTest extends UnitTestCase {
 	}
 
 	public function testCanRenderTemplateWithAppGlobal() {
-		$this->assertEquals(elgg_get_site_entity()->name, $this->twig->render('globals/app'));
+		$this->assertEquals(\elgg_get_site_entity()->name, $this->twig->render('globals/app'));
 	}
 
 	public function testCanRenderTemplateWithFakerGlobal() {
@@ -94,7 +94,7 @@ class TwigTest extends UnitTestCase {
 	}
 
 	public function testCanRenderTemplateWithAssetUrl() {
-		$this->assertEquals(elgg_get_simplecache_url('helpers/js'), $this->twig->render('functions/assetUrl'));
+		$this->assertEquals(\elgg_get_simplecache_url('helpers/js'), $this->twig->render('functions/assetUrl'));
 	}
 
 	public function testCanRenderTemplateWithImportEsm() {
@@ -106,7 +106,7 @@ class TwigTest extends UnitTestCase {
 	}
 
 	public function testCanRenderTemplateWithMenu() {
-		elgg_register_menu_item('foo', [
+		\elgg_register_menu_item('foo', [
 			'name' => 'bar',
 			'href' => 'bar',
 			'text' => 'bar',

@@ -12,7 +12,7 @@ class App {
 	 * @return \ElggUser|null
 	 */
 	public function user() {
-		return elgg_get_logged_in_user_entity();
+		return \elgg_get_logged_in_user_entity();
 	}
 
 	/**
@@ -20,7 +20,7 @@ class App {
 	 * @return \ElggSite
 	 */
 	public function site() {
-		return elgg_get_site_entity();
+		return \elgg_get_site_entity();
 	}
 
 	/**
@@ -28,7 +28,7 @@ class App {
 	 * @return string
 	 */
 	public function registrationUrl() {
-		return elgg_get_registration_url();
+		return \elgg_get_registration_url();
 	}
 
 	/**
@@ -36,6 +36,6 @@ class App {
 	 * @return string
 	 */
 	public function loginUrl() {
-		return elgg_get_login_url();
+		return \elgg_get_login_url();
 	}
 }
