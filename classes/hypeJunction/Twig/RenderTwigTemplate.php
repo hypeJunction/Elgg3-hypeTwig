@@ -33,7 +33,7 @@ class RenderTwigTemplate {
 		try {
 			$output = Twig::instance()->render($template, $vars);
 		} catch (\Exception $ex) {
-			elgg_log($ex, LogLevel::ERROR);
+			\elgg_log($ex, LogLevel::ERROR);
 			return null;
 		}
 
