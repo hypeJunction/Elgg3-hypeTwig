@@ -1,45 +1,46 @@
 {
-    "name": "hypejunction/hypetwig",
-    "type": "elgg-plugin",
-    "description": "Twig template integration",
-    "homepage": "https://github.com/hypeJunction/Elgg3-hypeTwig",
-    "keywords": [
-        "elgg",
-        "plugin",
-        "twig",
-        "templates"
-    ],
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Ismayil Khayredinov",
-            "email": "ismayil.khayredinov@gmail.com"
-        }
-    ],
-    "extra": {
-        "installer-name": "hypetwig",
-        "elgg-plugin": {
-            "id": "hypetwig"
-        }
-    },
-    "require": {
-        "php": ">=8.3",
-        "ext-intl": "*",
-        "composer/installers": "^2.0",
-        "elgg/elgg": "~7.0.0",
-        "twig/twig": "^3.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "": "classes/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        },
-        "audit": {
-            "block-insecure": false
-        }
+  "name": "hypejunction/hypetwig",
+  "type": "elgg-plugin",
+  "description": "Twig template integration",
+  "homepage": "https://github.com/hypeJunction/Elgg3-hypeTwig",
+  "keywords": [
+    "elgg",
+    "plugin",
+    "twig",
+    "templates"
+  ],
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Ismayil Khayredinov",
+      "email": "ismayil.khayredinov@gmail.com"
     }
+  ],
+  "extra": {
+    "installer-name": "hypetwig",
+    "elgg-plugin": {
+      "id": "hypetwig"
+    }
+  },
+  "require": {
+    "php": ">=8.3",
+    "ext-intl": "*",
+    "composer/installers": "^2.0",
+    "elgg/elgg": "~7.0.0",
+    "twig/twig": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "hypeJunction\\\\Twig\\\\": "classes/hypeJunction/Twig/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    },
+    "audit": {
+      "block-insecure": false
+    }
+  },
+  "version": "4.0.0"
 }
